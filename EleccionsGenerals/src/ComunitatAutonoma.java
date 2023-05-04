@@ -3,8 +3,52 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
-public class ImortacioCA {
+public class ComunitatAutonoma {
 
+    int ComunitatAutonomaId;
+    String nom;
+    int codiINE;
+
+    public ComunitatAutonoma(int comunitatAutonomaId, String nom, int codiINE) {
+        ComunitatAutonomaId = comunitatAutonomaId;
+        this.nom = nom;
+        this.codiINE = codiINE;
+    }
+
+    public ComunitatAutonoma(int id){
+        this.ComunitatAutonomaId = id;
+        setNom(null);
+        setCodiINE(-1);
+    }
+
+    public ComunitatAutonoma(ComunitatAutonoma c) {
+        this.ComunitatAutonomaId = c.getComunitatAutonomaId();
+
+    }
+//Getters and setters
+    public int getComunitatAutonomaId() {return ComunitatAutonomaId;}
+
+    public void setComunitatAutonomaId(int comunitatAutonomaId) {ComunitatAutonomaId = comunitatAutonomaId; }
+
+    public String getNom() {return nom;}
+
+    public void setNom(String nom) {this.nom = nom;}
+
+    public int getCodiINE() {return codiINE;}
+
+    public void setCodiINE(int codiINE) {this.codiINE = codiINE;}
+
+//toString
+    @Override
+    public String toString() {
+        return "ComunitatAutonoma{" +
+                "ComunitatAutonomaId=" + ComunitatAutonomaId +
+                ", nom='" + nom + '\'' +
+                ", codiINE=" + codiINE +
+                '}';
+    }
+
+    //importacio a la BD de les comunitats autonomes
     public static void importarComunitatsAutonomes(Connection con){
         File file = new File("./fitxers/07021606.DAT");
 
