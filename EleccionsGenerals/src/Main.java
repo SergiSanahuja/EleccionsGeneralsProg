@@ -21,7 +21,8 @@ public class Main {
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
             //Importacio de les Comunitats Autonomes
-            ComunitatAutonoma.importarComunitatsAutonomes(con);
+            //ComunitatAutonoma.importarComunitatsAutonomes(con);
+            ComunitatAutonoma.insertComunitatAutonoma();
 
 
         } catch (Exception e) {

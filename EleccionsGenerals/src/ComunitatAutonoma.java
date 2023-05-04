@@ -3,12 +3,14 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.sql.*;
+
 public class ComunitatAutonoma {
 
     int ComunitatAutonomaId;
     String nom;
     int codiINE;
 
+    //Constructors
     public ComunitatAutonoma(int comunitatAutonomaId, String nom, int codiINE) {
         ComunitatAutonomaId = comunitatAutonomaId;
         this.nom = nom;
@@ -23,8 +25,8 @@ public class ComunitatAutonoma {
 
     public ComunitatAutonoma(ComunitatAutonoma c) {
         this.ComunitatAutonomaId = c.getComunitatAutonomaId();
-
     }
+
 //Getters and setters
     public int getComunitatAutonomaId() {return ComunitatAutonomaId;}
 
@@ -46,6 +48,12 @@ public class ComunitatAutonoma {
                 ", nom='" + nom + '\'' +
                 ", codiINE=" + codiINE +
                 '}';
+    }
+
+    //insert comunitat autonoma
+    public static void insertComunitatAutonoma(){
+        ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
+        CAO.create(new ComunitatAutonoma(20,"Tejas",21));
     }
 
     //importacio a la BD de les comunitats autonomes
