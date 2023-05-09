@@ -41,7 +41,6 @@ public class ComunitatAutonoma {
 
     public void setCodiINE(int codiINE) {this.codiINE = codiINE;}
 
-//toString
     @Override
     public String toString() {
         return "ComunitatAutonoma{" +
@@ -59,7 +58,7 @@ public class ComunitatAutonoma {
 
     public static void updateComunitatAutonoma(){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.update(new ComunitatAutonoma(20,"Hola",20));
+        CAO.update(new ComunitatAutonoma(20,"UPDATE",20));
     }
 
     public static void readComunitatAutonoma(){

@@ -39,7 +39,7 @@ public class ComunitatsAutonomesDAO implements DAO<ComunitatAutonoma> {
             ps.setInt(2, o.getCodiINE());
             ps.setInt(3, o.getComunitatAutonomaId());
             int columnMod = ps.executeUpdate();
-            System.out.println("Columens modificades: " + columnMod);
+            System.out.println("Columenes modificades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class ComunitatsAutonomesDAO implements DAO<ComunitatAutonoma> {
             PreparedStatement ps = Main.con.prepareStatement("DELETE FROM comunitats_autonomes WHERE comunitat_aut_id = ?");
             ps.setInt(1, o.getComunitatAutonomaId());
             int columnMod = ps.executeUpdate();
-            System.out.println("Columens eliminades: " + columnMod);
+            System.out.println("Columenes eliminades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }

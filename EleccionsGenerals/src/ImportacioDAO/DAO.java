@@ -1,5 +1,6 @@
 package ImportacioDAO;
 
+
 public interface DAO<T> {
 //CRUD
     void create(T t);
