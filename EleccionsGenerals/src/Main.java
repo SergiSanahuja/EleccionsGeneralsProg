@@ -14,15 +14,20 @@ public class Main {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/mydbProg", "perepi", "pastanaga");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
             //Importacio de les Comunitats Autonomes
-            //ComunitatAutonoma.importarComunitatsAutonomes(con);
+            ComunitatAutonoma.importarComunitatsAutonomes(con);
+
+            //Sentecias CRUD
             ComunitatAutonoma.insertComunitatAutonoma();
+            ComunitatAutonoma.updateComunitatAutonoma();
+            ComunitatAutonoma.readComunitatAutonoma();
+            ComunitatAutonoma.deleteComunitatAutonoma();
 
 
         } catch (Exception e) {

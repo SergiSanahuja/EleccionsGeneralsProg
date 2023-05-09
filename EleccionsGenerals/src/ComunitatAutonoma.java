@@ -57,6 +57,21 @@ public class ComunitatAutonoma {
         CAO.create(new ComunitatAutonoma(20,"Tejas",20));
     }
 
+    public static void updateComunitatAutonoma(){
+        ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
+        CAO.update(new ComunitatAutonoma(20,"Hola",20));
+    }
+
+    public static void readComunitatAutonoma(){
+        ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
+        CAO.read(new ComunitatAutonoma(10));
+    }
+
+    public static void deleteComunitatAutonoma(){
+        ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
+        CAO.delete(new ComunitatAutonoma(1));
+    }
+
     //importacio a la BD de les comunitats autonomes
     public static void importarComunitatsAutonomes(Connection con){
         File file = new File("./fitxers/07021606.DAT");
@@ -83,9 +98,9 @@ public class ComunitatAutonoma {
 
                     // execute the preparedstatement
                     preparedStmt.execute();
+                    System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
                 }
             }
-            System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }

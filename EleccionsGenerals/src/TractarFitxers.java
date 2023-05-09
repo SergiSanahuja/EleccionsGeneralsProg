@@ -32,6 +32,7 @@ public class TractarFitxers {
 
                 System.out.println("El fitxer: " + ze.getName() + " s'ha afegit a la carpeta \"./fitxers/\"");
             }
+            System.out.println();
         } catch (IOException e) {
             e.printStackTrace();
         }
