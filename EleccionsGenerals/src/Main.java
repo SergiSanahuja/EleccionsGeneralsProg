@@ -16,7 +16,7 @@ public class Main {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/mydbProg", "perepi", "pastanaga");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
@@ -24,7 +24,7 @@ public class Main {
 
             //Importacio de les Comunitats Autonomes
             ComunitatAutonoma.importarComunitatsAutonomes(con);
-            //ComunitatAutonoma.insertComunitatAutonoma();
+
 
             //importar provincies
             Provincies.importarProvincies(con);
