@@ -3,24 +3,62 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Main {
-
+    static Scanner scan = new Scanner(System.in);
     public static Connection con;
 
     public static void main (String[]args){
         //Descomprimir els .DAT de un zip concret
         TractarFitxers.descomprimirDATsZIP();
 
+        int resposta;
+
+        System.out.print(  "╔══════════════════════════════╗\n" +
+                "║ 1 - Consulta tipus CREATE    ║\n" +
+                "║ 2 - Consulta tipus READ      ║\n"+
+                "║ 3 - Consulta tipus UPDATE    ║\n"+
+                "║ 4 - Consulta tipus DELETE    ║\n"+
+                "║ 5 - Sortir del programa      ║\n" +
+                "╚══════════════════════════════╝\n" +
+                ">   ");
+
+        resposta = scan.nextInt();
+
+        while (resposta >= 6 || resposta <= 0){
+            System.out.println("Introdueix un número vàlid");
+            System.out.print(">   ");
+            resposta = scan.nextInt();
+        }
+
+        if (resposta == 1) {
+            int id,codiINE;
+            String nom;
+            System.out.print("Introdueix els següents valors per crear una Comunitat Autonoma \n" +
+                    "ID, Nom, Codi INE \n" +
+                    ">   ");
+            id = scan.nextInt();
+            nom = scan.next().trim();
+            codiINE = scan.nextInt();
+
+            try {
+                ComunitatAutonoma.insertComunitatAutonoma(id,nom,codiINE);
+            }catch (
+                    Exception e){
+                e.printStackTrace();
+            }
+        }
+
         //Fer la conexio a la base de dades i les importacions
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //Connectar a la base de dades elias
-            //con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Connectar a la base de dades Sergi
-            con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
@@ -30,26 +68,25 @@ public class Main {
             ComunitatAutonoma.importarComunitatsAutonomes(con);
 
             //Crud Comunitats Autonomes
-            ComunitatAutonoma.insertComunitatAutonoma();
-            ComunitatAutonoma.updateComunitatAutonoma();
-            ComunitatAutonoma.readComunitatAutonoma();
-            ComunitatAutonoma.deleteComunitatAutonoma();
+            //ComunitatAutonoma.updateComunitatAutonoma();
+            //ComunitatAutonoma.readComunitatAutonoma();
+            //ComunitatAutonoma.deleteComunitatAutonoma();
 
 
             //importar provincies
-            Provincies.importarProvincies(con);
+            //Provincies.importarProvincies(con);
 
             //importar municipis
-            Municipi.importarMunicipis(con);
+            //Municipi.importarMunicipis(con);
 
             //importacio persones
-            Persones.importarPersones(con);
+            //Persones.importarPersones(con);
 
             //importar candidats
-            Candidats.importarCandidats(con);
+            //Candidats.importarCandidats(con);
 
             //importar candidatures
-            Candidatures.importarCandidatures(con);
+            //Candidatures.importarCandidatures(con);
 
         } catch (Exception e) {
             e.printStackTrace();
