@@ -80,9 +80,9 @@ public class ComunitatAutonoma {
             String st;
 
             while ((st = br.readLine()) != null) {
-                int codiINEComunitat = Integer.parseInt(llegirSegonsLlargada(10, 2, st));
-                int codiINE = Integer.parseInt(llegirSegonsLlargada(12,2,st));
-                String nomComunitat = llegirSegonsLlargada(15, 50, st).trim();
+                int codiINEComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
+                int codiINE = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
+                String nomComunitat = Main.llegirSegonsLlargada(15, 50, st).trim();
 
                 if (codiINE == 99 && codiINEComunitat != 99) {
                     // the mysql insert statement
@@ -105,16 +105,6 @@ public class ComunitatAutonoma {
         }
     }
 
-    private static String llegirSegonsLlargada(int longiInci, int llargadaALlegir, String st) {
-        String stringTornar = "";
 
-        longiInci--;
-
-        for (int i = 0; i < llargadaALlegir; ++i, ++longiInci) {
-            stringTornar += String.valueOf(st.charAt(longiInci));
-
-        }
-        return stringTornar;
-    }
 }
 
