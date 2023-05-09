@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class ComunitatAutonoma {
@@ -53,14 +54,14 @@ public class ComunitatAutonoma {
     //insert comunitat autonoma
     public static void insertComunitatAutonoma(){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.create(new ComunitatAutonoma(20,"Tejas",21));
+        CAO.create(new ComunitatAutonoma(20,"Tejas",20));
     }
 
     //importacio a la BD de les comunitats autonomes
     public static void importarComunitatsAutonomes(Connection con){
         File file = new File("./fitxers/07021606.DAT");
 
-        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(file, StandardCharsets.ISO_8859_1))) {
 
             String st;
 
