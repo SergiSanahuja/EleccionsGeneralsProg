@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.CandidatsDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -38,6 +40,11 @@ public class Candidats {
     public void setNum_ordre(int num_ordre) {this.num_ordre = num_ordre;}
     public String getTipus() {return tipus;}
     public void setTipus(String tipus) {this.tipus = tipus;}
+
+    public static void insert(){
+        CandidatsDAO Candidat = new CandidatsDAO();
+        Candidat.create(new Candidats(1,1,1,1,1,"a"));
+    }
 
 
     public static void importarCandidats(Connection con) {

@@ -5,9 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Main {
-
+    static Scanner scan = new Scanner(System.in);
     public static Connection con;
 
     public static void main (String[]args){
@@ -28,30 +29,15 @@ public class Main {
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
-            //Importacio de les Comunitats Autonomes
-            ComunitatAutonoma.importarComunitatsAutonomes(con);
-
-            //Crud Comunitats Autonomes
-           // ComunitatAutonoma.insertComunitatAutonoma();
-           // ComunitatAutonoma.updateComunitatAutonoma();
-           // ComunitatAutonoma.readComunitatAutonoma();
-           // ComunitatAutonoma.deleteComunitatAutonoma();
-
-
-            //importar provincies
-            Provincies.importarProvincies(con);
-
-            //importar municipis
-            Municipi.importarMunicipis(con);
-
-            //importacio persones
-            Persones.importarPersones(con);
-
-            //importar candidats
-            Candidats.importarCandidats(con);
-
-            //importar candidatures
-            Candidatures.importarCandidatures(con);
+            System.out.println("1. Importar dades");
+            int op = scan.nextInt();
+            scan.nextLine();
+            switch (op) {
+                case 1 : Importacio.importacions(con);
+                case 2 : Candidats.insert();
+                default: System.out.println("Opció incorrecta");
+            }
+            Importacio.importacions(con);
 
         } catch (Exception e) {
             e.printStackTrace();
