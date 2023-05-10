@@ -41,12 +41,30 @@ public class Candidats {
     public String getTipus() {return tipus;}
     public void setTipus(String tipus) {this.tipus = tipus;}
 
+    //funcions per a CRUD
     public static void insert(){
         CandidatsDAO Candidat = new CandidatsDAO();
-        Candidat.create(new Candidats(1,1,1,1,1,"a"));
+        Candidat.create(new Candidats(9999,1,3993,1,1,"T"));
+        System.out.println("Candidat inserit");
+    }
+
+    public static void read(){
+        CandidatsDAO Candidat = new CandidatsDAO();
+        Candidat.read(new Candidats(1500));
+    }
+
+    public static void update(){
+        CandidatsDAO Candidat = new CandidatsDAO();
+        Candidat.update(new Candidats(3823,1,3997,5,5,"T"));
+    }
+
+    public static void delete(){
+        CandidatsDAO Candidat = new CandidatsDAO();
+        Candidat.delete(new Candidats(3823));
     }
 
 
+//Importacio de la taula candidats
     public static void importarCandidats(Connection con) {
         File file = new File("./fitxers/04021606.DAT");
 
