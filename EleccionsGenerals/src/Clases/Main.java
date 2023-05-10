@@ -1,3 +1,4 @@
+package Clases;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,24 +18,19 @@ public class Main {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //Connectar a la base de dades elias
-            //con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Connectar a la base de dades Sergi
-            con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
+            Menu.menu();
+
             //Importacio de les Comunitats Autonomes
             ComunitatAutonoma.importarComunitatsAutonomes(con);
-
-            //Crud Comunitats Autonomes
-            ComunitatAutonoma.insertComunitatAutonoma();
-            ComunitatAutonoma.updateComunitatAutonoma();
-            ComunitatAutonoma.readComunitatAutonoma();
-            ComunitatAutonoma.deleteComunitatAutonoma();
-
 
             //importar provincies
             Provincies.importarProvincies(con);
