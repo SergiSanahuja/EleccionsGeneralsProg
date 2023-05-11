@@ -19,14 +19,18 @@ public class Main {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //Connectar a la base de dades elias
-            con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            //con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
 
             //Connectar a la base de dades Sergi
-            //con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/eleccions_generals_prog", "perepi", "pastanaga");
+            con = DriverManager.getConnection("jdbc:mysql://192.168.184.140:3306/mydbProg", "perepi", "pastanaga");
 
             //Preparem el Date
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+
+            Menu.menu(con);
+
+            con.close();
 
 
         } catch (Exception e) {

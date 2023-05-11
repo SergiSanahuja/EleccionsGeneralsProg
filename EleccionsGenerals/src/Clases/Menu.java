@@ -1,10 +1,11 @@
 package Clases;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class Menu {
     static Scanner scan = new Scanner(System.in);
-    public static void menu() {
+    public static void menu(Connection con){
         int resposta;
 
         System.out.print(  "╔═════════════════════════════════╗\n" +
@@ -24,7 +25,7 @@ public class Menu {
 
         switch (resposta) {
             case 1:
-                //Importacio.importacions();
+                Importacio.importacions(con);
                 break;
             case 2:
                 escollirTaula();

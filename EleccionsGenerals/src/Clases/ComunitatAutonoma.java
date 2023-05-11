@@ -32,7 +32,7 @@ public class ComunitatAutonoma {
         this.ComunitatAutonomaId = c.getComunitatAutonomaId();
     }
 
-//Getters and setters
+    //Getters and setters
     public int getComunitatAutonomaId() {return ComunitatAutonomaId;}
 
     public void setComunitatAutonomaId(int comunitatAutonomaId) {ComunitatAutonomaId = comunitatAutonomaId; }
@@ -60,19 +60,19 @@ public class ComunitatAutonoma {
         CAO.create(new ComunitatAutonoma(id,nom,codiINE));
     }
 
-    public static void updateComunitatAutonoma(){
+    public static void updateComunitatAutonoma(int id, String nom, int codiINE){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.update(new ComunitatAutonoma(20,"UPDATE",20));
+        CAO.update(new ComunitatAutonoma(id,nom,codiINE));
     }
 
-    public static void readComunitatAutonoma(){
+    public static void readComunitatAutonoma(int id){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.read(new ComunitatAutonoma(10));
+        CAO.read(new ComunitatAutonoma(id));
     }
 
-    public static void deleteComunitatAutonoma(){
+    public static void deleteComunitatAutonoma(int id){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.delete(new ComunitatAutonoma(1));
+        CAO.delete(new ComunitatAutonoma(id));
     }
 
     //importacio a la BD de les comunitats autonomes
@@ -102,9 +102,8 @@ public class ComunitatAutonoma {
                     // execute the preparedstatement
                     preparedStmt.execute();
                 }
-                System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
             }
-                    System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
+            System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
@@ -112,4 +111,3 @@ public class ComunitatAutonoma {
 
 
 }
-
