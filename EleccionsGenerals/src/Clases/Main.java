@@ -28,6 +28,8 @@ public class Main {
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
+            Menu.menu(con);
+
 
         } catch (Exception e) {
             e.printStackTrace();
