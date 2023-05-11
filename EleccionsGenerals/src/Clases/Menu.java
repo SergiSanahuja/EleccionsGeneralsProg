@@ -174,26 +174,26 @@ public class Menu {
                 tipus = scan.next().trim();
                 scan.nextLine();
 
-                Candidats.insert(id,candidatura_id,persona_id,provincia_id,num_ordre,tipus);
+                //Candidats.insert(id,candidatura_id,persona_id,provincia_id,num_ordre,tipus);
                 break;
             case 2:
                 System.out.print("Digues el id del candidat que vols buscar\n" +
                         ">   ");
                 id = scan.nextInt();
-                Candidats.read(id);
+                //Candidats.read(id);
                 break;
             case 3:
                 System.out.print("Digues l'id del candidat que vols modificar seguit del nou persona_id, provincia_id, num_ordre i tipus\n" +
                         ">   ");
                 id = scan.nextInt();
                 provincia_id = scan.nextInt();
-                Candidats.update(id , provincia_id);
+                //Candidats.update(id , provincia_id);
                 break;
             case 4:
                 System.out.print("Digues el id del candidat que vols eliminar\n" +
                         ">   ");
                 id = scan.nextInt();
-                Candidats.delete(id);
+                //Candidats.delete(id);
         }
     }
     public static void escollirCRUDCandidatures(){
