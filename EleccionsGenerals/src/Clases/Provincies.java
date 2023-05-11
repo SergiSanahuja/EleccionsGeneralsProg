@@ -95,7 +95,7 @@ public class Provincies {
 
                 }
             }
-            System.out.println("La taula de Clases.Provincies s'ha importat correctament.");
+            System.out.println("La taula de Provincies s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
