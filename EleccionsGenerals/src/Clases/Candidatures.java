@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.CandidaturesDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -24,30 +26,25 @@ public class Candidatures {
         this.nom_llarg = nom_llarg;
     }
 
+    //Getters and setters
     public int getCandidaturaID() {
         return candidaturaID;
     }
-    public void setCandidaturaID(int candidaturaID) {
-        this.candidaturaID = candidaturaID;
-    }
+    public void setCandidaturaID(int candidaturaID) {this.candidaturaID = candidaturaID;}
     public int getEleccioID() {
         return eleccioID;
     }
     public void setEleccioID(int eleccioID) {
         this.eleccioID = eleccioID;
     }
-    public int getCodiCandidatura() {
-        return codiCandidatura;
-    }
+    public int getCodiCandidatura() {return codiCandidatura;}
     public void setCodiCandidatura(int codiCandidatura) {
         this.codiCandidatura = codiCandidatura;
     }
     public int getCodi_acumulacio_prov() {
         return codi_acumulacio_prov;
     }
-    public void setCodi_acumulacio_prov(int codi_acumulacio_prov) {
-        this.codi_acumulacio_prov = codi_acumulacio_prov;
-    }
+    public void setCodi_acumulacio_prov(int codi_acumulacio_prov) {this.codi_acumulacio_prov = codi_acumulacio_prov;}
     public int getCodi_acumulacio_ca() {
         return codi_acumulacio_ca;
     }
@@ -57,9 +54,7 @@ public class Candidatures {
     public int getCodi_acumulacio_nacional() {
         return Codi_acumulacio_nacional;
     }
-    public void setCodi_acumulacio_nacional(int codi_acumulacio_nacional) {
-        Codi_acumulacio_nacional = codi_acumulacio_nacional;
-    }
+    public void setCodi_acumulacio_nacional(int codi_acumulacio_nacional) {Codi_acumulacio_nacional = codi_acumulacio_nacional;}
     public String getNom_curt() {
         return nom_curt;
     }
@@ -74,6 +69,14 @@ public class Candidatures {
     }
 
 
+    //Metodes CRUD
+    //Create
+    public static void insert() throws IOException {
+        CandidaturesDAO c = new CandidaturesDAO();
+        c.create(new Candidatures(1,0,95,95,95,95,"nom_curt","nom_llarg"));
+    }
+
+    //importacio de Candidatures
     public static void importarCandidatures( Connection con){
         File file = new File("./fitxers/03021606.DAT");
 
