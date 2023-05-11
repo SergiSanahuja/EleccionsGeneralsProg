@@ -32,7 +32,7 @@ public class ComunitatAutonoma {
         this.ComunitatAutonomaId = c.getComunitatAutonomaId();
     }
 
-//Getters and setters
+    //Getters and setters
     public int getComunitatAutonomaId() {return ComunitatAutonomaId;}
 
     public void setComunitatAutonomaId(int comunitatAutonomaId) {ComunitatAutonomaId = comunitatAutonomaId; }
@@ -103,7 +103,7 @@ public class ComunitatAutonoma {
                     preparedStmt.execute();
                 }
             }
-                    System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
+            System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
@@ -111,4 +111,3 @@ public class ComunitatAutonoma {
 
 
 }
-

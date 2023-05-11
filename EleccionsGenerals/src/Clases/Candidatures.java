@@ -26,6 +26,17 @@ public class Candidatures {
         this.nom_llarg = nom_llarg;
     }
 
+    public Candidatures(int id){
+        this.candidaturaID = id;
+        setEleccioID(-1);
+        setCodiCandidatura(-1);
+        setCodi_acumulacio_prov(-1);
+        setCodi_acumulacio_ca(-1);
+        setCodi_acumulacio_nacional(-1);
+        setNom_curt(null);
+        setNom_llarg(null);
+    }
+
     //Getters and setters
     public int getCandidaturaID() {
         return candidaturaID;
@@ -74,6 +85,24 @@ public class Candidatures {
     public static void insert() throws IOException {
         CandidaturesDAO c = new CandidaturesDAO();
         c.create(new Candidatures(1,0,95,95,95,95,"nom_curt","nom_llarg"));
+    }
+
+    //Read
+    public static void read() throws IOException {
+        CandidaturesDAO c = new CandidaturesDAO();
+        c.read(new Candidatures(50));
+    }
+
+    //Update
+    public static void update() throws IOException {
+        CandidaturesDAO c = new CandidaturesDAO();
+        c.update(new Candidatures(1,0,95,95,95,95,"Pere","pi"));
+    }
+
+    //Delete
+    public static void delete() throws IOException {
+        CandidaturesDAO c = new CandidaturesDAO();
+        c.delete(new Candidatures(84));
     }
 
     //importacio de Candidatures

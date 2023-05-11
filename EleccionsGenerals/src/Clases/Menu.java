@@ -5,7 +5,9 @@ import java.util.Scanner;
 
 public class Menu {
     static Scanner scan = new Scanner(System.in);
-    public static void menu(Connection con) {
+
+    public static void menu(Connection con){
+
         int resposta;
 
         System.out.print(  "╔═════════════════════════════════╗\n" +

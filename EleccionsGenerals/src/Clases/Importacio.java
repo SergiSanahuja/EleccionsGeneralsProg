@@ -7,13 +7,6 @@ public class Importacio {
        //Importacio de les Comunitats Autonomes
        ComunitatAutonoma.importarComunitatsAutonomes(con);
 
-       //Crud Comunitats Autonomes
-       // ComunitatAutonoma.insertComunitatAutonoma();
-       // ComunitatAutonoma.updateComunitatAutonoma();
-       // ComunitatAutonoma.readComunitatAutonoma();
-       // ComunitatAutonoma.deleteComunitatAutonoma();
-
-
        //importar provincies
        Provincies.importarProvincies(con);
 
@@ -28,5 +21,9 @@ public class Importacio {
 
        //importar candidatures
        Candidatures.importarCandidatures(con);
+
+
+
    }
+
 }
