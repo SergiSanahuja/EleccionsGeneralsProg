@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.ProvinciesDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +19,14 @@ public class Provincies {
         this.codi_ine = codi_ine;
         this.num_escons = num_escons;
         this.nom = nom;
+    }
+
+    public Provincies(int id){
+        this.provinciaID = id;
+        setComunitat_aut_id(-1);
+        setCodi_ine(-1);
+        setNum_escons(-1);
+        setNom(null);
     }
 
     public int getProvinciaID() {
@@ -59,6 +69,36 @@ public class Provincies {
         this.nom = nom;
     }
 
+    //metodes CRUD
+    //create
+    public static void insert(){
+       ProvinciesDAO PDAO = new ProvinciesDAO();
+         PDAO.create(new Provincies(1,1,1,1,"nom"));
+        System.out.println("Provincia creada");
+    }
+
+    //read
+    public static void select(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.read(new Provincies(1));
+    }
+
+    //update
+    public static void update(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.update(new Provincies(1,1,1,1,"nom"));
+        System.out.println("Provincia actualitzada");
+    }
+
+    //delete
+    public static void delete(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.delete(new Provincies(1));
+        System.out.println("Provincia eliminada");
+    }
+
+
+    //importarProvincies
     public static void importarProvincies(Connection con) {
         File file = new File("./fitxers/07021606.DAT");
 
