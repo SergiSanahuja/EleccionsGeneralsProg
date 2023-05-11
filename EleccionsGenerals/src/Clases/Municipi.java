@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.MunicipiDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +19,14 @@ public class Municipi {
         this.provincia_id = provincia_id;
         this.nom = nom;
         this.districte = districte;
+    }
+
+    public Municipi(int id){
+        this.municipiID = id;
+        setCodi_ine(-1);
+        setProvincia_id(-1);
+        setNom(null);
+        setDistricte(null);
     }
 
     public int getMunicipiID() {
@@ -49,6 +59,37 @@ public class Municipi {
     public void setDistricte(String districte) {
         this.districte = districte;
     }
+
+    //Metode municipi CRUD
+    //insert
+    public static void insert(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.create(new Municipi(1,1,1,"nom","districte"));
+        System.out.println("Insertat");
+    }
+
+    //select
+    public static void select(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.read(new Municipi(1));
+    }
+
+    //update
+    public static void update(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.update(new Municipi(1,1,1,"nom","districte"));
+        System.out.println("Actualitzat");
+    }
+
+    //delete
+    public static void delete(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.delete(new Municipi(1));
+        System.out.println("Eliminat");
+    }
+
+
+
 
     //importar municipis
     public static void importarMunicipis(Connection con) {
