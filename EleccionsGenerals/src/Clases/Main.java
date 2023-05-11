@@ -4,9 +4,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Main {
-
+    static Scanner scan = new Scanner(System.in);
     public static Connection con;
 
     public static void main (String[]args){
@@ -27,25 +28,6 @@ public class Main {
             Calendar calendar = Calendar.getInstance();
             java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
 
-            Menu.menu();
-
-            //Importacio de les Comunitats Autonomes
-            ComunitatAutonoma.importarComunitatsAutonomes(con);
-
-            //importar provincies
-            Provincies.importarProvincies(con);
-
-            //importar municipis
-            Municipi.importarMunicipis(con);
-
-            //importacio persones
-            Persones.importarPersones(con);
-
-            //importar candidats
-            Candidats.importarCandidats(con);
-
-            //importar candidatures
-            Candidatures.importarCandidatures(con);
 
         } catch (Exception e) {
             e.printStackTrace();

@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.PersonesDAO;
+
 import java.nio.charset.StandardCharsets;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,8 +18,10 @@ import java.io.IOException;
 public class Persones {
     String nom,cog1,cog2,sexe,DNI;
     Date dataNaixement;
-
-    public Persones(String nom, String cog1, String cog2, String sexe, String DNI, Date data_naixement) {
+    int id;
+//Constructors
+    public Persones(int id,String nom, String cog1, String cog2, String sexe, String DNI, Date data_naixement) {
+        this.id = id;
         this.nom = nom;
         this.cog1 = cog1;
         this.cog2 = cog2;
@@ -26,6 +30,17 @@ public class Persones {
         this.dataNaixement = data_naixement;
     }
 
+    public Persones(int id){
+        this.id = id;
+        setNom(null);
+        setCog1(null);
+        setCog2(null);
+        setSexe(null);
+        setDNI(null);
+        setData_naixement(null);
+    }
+
+//Getters and Setters
     public String getNom() {
         return nom;
     }
@@ -56,13 +71,41 @@ public class Persones {
     public void setDNI(String DNI) {
         this.DNI = DNI;
     }
-    public Date getData_naixement() {
-        return dataNaixement;
-    }
+    public Date getData_naixement() {return dataNaixement;}
+    public int getId() {return id;}
+    public void setId(int id) {this.id = id;}
+
     public void setData_naixement(Date data_naixement) {
         this.dataNaixement = data_naixement;
     }
 
+//CRUD
+    //insertar persona
+    public static void insert(){
+        PersonesDAO persona = new PersonesDAO();
+        persona.create(new Persones(   1 ,"Paco","Perez","Perez","M","12345678A",new Date()));
+        System.out.println("Persona insertada");
+    }
+
+    public static void read(){
+        PersonesDAO persona = new PersonesDAO();
+        persona.read(new Persones(11464));
+    }
+
+    public static void update(){
+        PersonesDAO persona = new PersonesDAO();
+        persona.update(new Persones(11464,"Pere","Pi","Perez","M","12345678A",new Date()));
+        System.out.println("Persona actualizada");
+    }
+
+    public static void delete(){
+        PersonesDAO persona = new PersonesDAO();
+        persona.delete(new Persones(11464));
+        System.out.println("Persona eliminada");
+    }
+
+
+    //importar persones
     public static void importarPersones(Connection con) {
         File file = new File("./fitxers/04021606.DAT");
 
