@@ -55,9 +55,9 @@ public class ComunitatAutonoma {
     }
 
     //insert comunitat autonoma
-    public static void insertComunitatAutonoma(){
+    public static void insertComunitatAutonoma(int id, String nom, int codiINE){
         ComunitatsAutonomesDAO CAO = new ComunitatsAutonomesDAO();
-        CAO.create(new ComunitatAutonoma(20,"Tejas",20));
+        CAO.create(new ComunitatAutonoma(id,nom,codiINE));
     }
 
     public static void updateComunitatAutonoma(){
@@ -102,6 +102,7 @@ public class ComunitatAutonoma {
                     // execute the preparedstatement
                     preparedStmt.execute();
                 }
+                System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
             }
                     System.out.println("La taula de Comunitats Autonomes s'ha importat correctament.");
         } catch (IOException | SQLException e) {
