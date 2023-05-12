@@ -30,6 +30,8 @@ public class Main {
 
             Menu.menu(con);
 
+            //Tancar la conexio
+            con.close();
 
         } catch (Exception e) {
             e.printStackTrace();
