@@ -1,4 +1,6 @@
-# PRÀCTICA REALITZADA PER:
+#BDD relacionals amb JDBC
+
+## Pràctica realitzada per:
   -Sergi Sanahuja
   
   -Elyas El Jerari
