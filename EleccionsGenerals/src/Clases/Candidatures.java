@@ -147,7 +147,7 @@ public class Candidatures {
                 //System.out.println(eleccio_id + " " + codi_canditatura + " " + nom_curt + " " + nom_llarg + " " + codi_acumulacio_provincia + " " + codi_acumulacio_comautonoma + " " + codi_acumulacio_nacional);
 
             }
-            System.out.println("La taula de Clases.Candidatures s'ha importat correctament.");
+            System.out.println("La taula de Candidatures s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
