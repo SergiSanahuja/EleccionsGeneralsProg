@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class Candidatures {
-    int candidaturaID,eleccioID,codiCandidatura,codi_acumulacio_prov,codi_acumulacio_ca,Codi_acumulacio_nacional;
-    String nom_curt,nom_llarg;
+    private int candidaturaID,eleccioID,codiCandidatura,codi_acumulacio_prov,codi_acumulacio_ca,Codi_acumulacio_nacional;
+    private String nom_curt,nom_llarg;
 
 
     public Candidatures(int candidaturaID, int eleccioID, int codiCandidatura, int codi_acumulacio_prov, int codi_acumulacio_ca, int Codi_acumulacio_nacional, String nom_curt, String nom_llarg) {

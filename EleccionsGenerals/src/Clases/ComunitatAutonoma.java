@@ -11,9 +11,9 @@ import java.sql.*;
 
 public class ComunitatAutonoma {
 
-    int ComunitatAutonomaId;
-    String nom;
-    int codiINE;
+    private int ComunitatAutonomaId;
+    private String nom;
+    private int codiINE;
 
     //Constructors
     public ComunitatAutonoma(int comunitatAutonomaId, String nom, int codiINE) {
