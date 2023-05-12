@@ -21,11 +21,11 @@ public class Importacio {
        //importacio persones
        Persones.importarPersones(con);
 
-       //importar candidats
-       Candidats.importarCandidats(con);
-
        //importar candidatures
        Candidatures.importarCandidatures(con);
+
+       //importar candidats
+       Candidats.importarCandidats(con);
 
 
 
