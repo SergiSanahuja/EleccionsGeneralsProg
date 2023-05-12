@@ -81,26 +81,26 @@ public class Persones {
 
 //CRUD
     //insertar persona
-    public static void insert(){
+    public static void insert(int id, String nom, String cog1, String cog2, String sexe, Date data_naixement, String dni){
         PersonesDAO persona = new PersonesDAO();
-        persona.create(new Persones(   1 ,"Paco","Perez","Perez","M","12345678A",new Date()));
+        persona.create(new Persones(id ,nom ,cog1 ,cog2 ,sexe ,dni ,data_naixement));
         System.out.println("Persona insertada");
     }
 
-    public static void read(){
+    public static void read(int id){
         PersonesDAO persona = new PersonesDAO();
-        persona.read(new Persones(11464));
+        persona.read(new Persones(id));
     }
 
-    public static void update(){
+    public static void update(int id, String nom, String cog1, String cog2) {
         PersonesDAO persona = new PersonesDAO();
-        persona.update(new Persones(11464,"Pere","Pi","Perez","M","12345678A",new Date()));
+        persona.update(new Persones(id,nom,cog1,cog2,"M","12345678A",new Date()));
         System.out.println("Persona actualizada");
     }
 
-    public static void delete(){
+    public static void delete(int id){
         PersonesDAO persona = new PersonesDAO();
-        persona.delete(new Persones(11464));
+        persona.delete(new Persones(id));
         System.out.println("Persona eliminada");
     }
 

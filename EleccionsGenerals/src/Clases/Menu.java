@@ -1,12 +1,13 @@
 package Clases;
 
+import java.io.IOException;
 import java.sql.Connection;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Menu {
     static Scanner scan = new Scanner(System.in);
-
-    public static void menu(Connection con){
+    public static void menu(Connection con) throws IOException {
 
         int resposta;
 
@@ -38,7 +39,7 @@ public class Menu {
                 break;
         }
     }
-    public static void escollirTaula(){
+    public static void escollirTaula() throws IOException {
         int respostaTaula;
 
         System.out.println("Sobre quina taula vols realitzar les sentencies CRUD?");
@@ -70,13 +71,13 @@ public class Menu {
                 //escollirCRUDMunicipis();
                 break;
             case 4:
-                //escollirCRUDPersones();
+                escollirCRUDPersones();
                 break;
             case 5:
                 escollirCRUDCandidats();
                 break;
             case 6:
-                //escollirCRUDCandidatures();
+                escollirCRUDCandidatures();
                 break;
         }
     }
@@ -151,6 +152,51 @@ public class Menu {
 
     }
     public static void escollirCRUDPersones(){
+        int id ,respostaCRUD;
+        String nom, cognom1, cognom2, sexe, DNI;
+        Date data_naixement;
+        printCRUD();
+        respostaCRUD = scan.nextInt();
+        scan.nextLine();
+
+        comprovarCRUD(respostaCRUD);
+        switch (respostaCRUD){
+            case 1:
+                System.out.print("Digues el id, nom, cognom1, cognom2, sexe, data_naixement i DNI de la persona\n" +
+                        ">   ");
+                id = scan.nextInt();
+                nom = scan.next();
+                cognom1 = scan.next();
+                cognom2 = scan.next();
+                sexe = scan.next();
+                data_naixement = new Date();
+                DNI = scan.next();
+                scan.nextLine();
+
+                Persones.insert(id,nom,cognom1,cognom2,sexe,data_naixement,DNI);
+                break;
+                case 2:
+                    System.out.println("Digues el id de la persona que vols buscar\n" +
+                            ">   ");
+                    id = scan.nextInt();
+                    Persones.read(id);
+                    break;
+                case 3:
+                    System.out.print("Digues l'id de la persona que vols modificar seguit del nou nom, cognom1 i cognom2\n" +
+                            ">   ");
+                    id = scan.nextInt();
+                    nom = scan.next().trim();
+                    cognom1 = scan.next().trim();
+                    cognom2 = scan.next().trim();
+                    Persones.update(id,nom,cognom1,cognom2);
+                    break;
+                case 4:
+                    System.out.print("Digues el id de la persona que vols eliminar\n" +
+                            ">   ");
+                    id = scan.nextInt();
+                    Persones.delete(id);
+                    break;
+        }
 
     }
     public static void escollirCRUDCandidats(){
@@ -187,7 +233,10 @@ public class Menu {
                         ">   ");
                 id = scan.nextInt();
                 provincia_id = scan.nextInt();
-                //Candidats.update(id , provincia_id);
+
+                persona_id = scan.nextInt();
+                Candidats.update(id ,persona_id, provincia_id);
+
                 break;
             case 4:
                 System.out.print("Digues el id del candidat que vols eliminar\n" +
@@ -196,8 +245,50 @@ public class Menu {
                 //Candidats.delete(id);
         }
     }
-    public static void escollirCRUDCandidatures(){
+    public static void escollirCRUDCandidatures() throws IOException {
+        int id, eleccio_id;
+        String codi_candidatura, nom_curt,nom_llarg,codi_acumulacio_provincia,codi_acumulacio_ca,codi_acumulario_nacional;
+        printCRUD();
+        int respostaCRUD = scan.nextInt();
+        scan.nextLine();
+        comprovarCRUD(respostaCRUD);
 
+        switch (respostaCRUD){
+            case 1:
+                System.out.print("Digues el id, eleccio_id, codi_candidatura, nom_curt, nom_llarg, codi_acumulacio_provincia, codi_acumulacio_ca i codi_acumulario_nacional de la candidatura\n" +
+                        ">   ");
+                id = scan.nextInt();
+                eleccio_id = scan.nextInt();
+                codi_candidatura = scan.next();
+                nom_curt = scan.next();
+                nom_llarg = scan.next();
+                codi_acumulacio_provincia = scan.next();
+                codi_acumulacio_ca = scan.next();
+                codi_acumulario_nacional = scan.next();
+                scan.nextLine();
+
+                Candidatures.insert(id,eleccio_id,codi_candidatura,nom_curt,nom_llarg,codi_acumulacio_provincia,codi_acumulacio_ca,codi_acumulario_nacional);
+                break;
+            case 2:
+                System.out.print("Digues el id de la candidatura que vols buscar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Candidatures.read(id);
+                break;
+            case 3:
+                System.out.print("Digues l'id de la candidatura que vols modificar seguit del nou nom_curt i nom_llarg\n" +
+                        ">   ");
+                id = scan.nextInt();
+                nom_curt = scan.next().trim();
+                nom_llarg = scan.next().trim();
+                Candidatures.update(id,nom_curt,nom_llarg);
+                break;
+            case 4:
+                System.out.print("Digues el id de la candidatura que vols eliminar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Candidatures.delete(id);
+        }
     }
 }
 

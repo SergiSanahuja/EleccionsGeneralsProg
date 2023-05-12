@@ -11,11 +11,11 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class Candidatures {
-    private int candidaturaID,eleccioID,codiCandidatura,codi_acumulacio_prov,codi_acumulacio_ca,Codi_acumulacio_nacional;
-    private String nom_curt,nom_llarg;
+    int candidaturaID,eleccioID;
+    String nom_curt,nom_llarg, codiCandidatura,codi_acumulacio_prov,codi_acumulacio_ca,Codi_acumulacio_nacional;
 
 
-    public Candidatures(int candidaturaID, int eleccioID, int codiCandidatura, int codi_acumulacio_prov, int codi_acumulacio_ca, int Codi_acumulacio_nacional, String nom_curt, String nom_llarg) {
+    public Candidatures(int candidaturaID, int eleccioID, String codiCandidatura, String codi_acumulacio_prov, String codi_acumulacio_ca, String Codi_acumulacio_nacional, String nom_curt, String nom_llarg) {
         this.candidaturaID = candidaturaID;
         this.eleccioID = eleccioID;
         this.codiCandidatura = codiCandidatura;
@@ -29,10 +29,10 @@ public class Candidatures {
     public Candidatures(int id){
         this.candidaturaID = id;
         setEleccioID(-1);
-        setCodiCandidatura(-1);
-        setCodi_acumulacio_prov(-1);
-        setCodi_acumulacio_ca(-1);
-        setCodi_acumulacio_nacional(-1);
+        setCodiCandidatura(String.valueOf(-1));
+        setCodi_acumulacio_prov(String.valueOf(-1));
+        setCodi_acumulacio_ca(String.valueOf(-1));
+        setCodi_acumulacio_nacional(String.valueOf(-1));
         setNom_curt(null);
         setNom_llarg(null);
     }
@@ -48,24 +48,24 @@ public class Candidatures {
     public void setEleccioID(int eleccioID) {
         this.eleccioID = eleccioID;
     }
-    public int getCodiCandidatura() {return codiCandidatura;}
-    public void setCodiCandidatura(int codiCandidatura) {
+    public String getCodiCandidatura() {return codiCandidatura;}
+    public void setCodiCandidatura(String codiCandidatura) {
         this.codiCandidatura = codiCandidatura;
     }
-    public int getCodi_acumulacio_prov() {
+    public String getCodi_acumulacio_prov() {
         return codi_acumulacio_prov;
     }
-    public void setCodi_acumulacio_prov(int codi_acumulacio_prov) {this.codi_acumulacio_prov = codi_acumulacio_prov;}
-    public int getCodi_acumulacio_ca() {
+    public void setCodi_acumulacio_prov(String codi_acumulacio_prov) {this.codi_acumulacio_prov = codi_acumulacio_prov;}
+    public String getCodi_acumulacio_ca() {
         return codi_acumulacio_ca;
     }
-    public void setCodi_acumulacio_ca(int codi_acumulacio_ca) {
+    public void setCodi_acumulacio_ca(String codi_acumulacio_ca) {
         this.codi_acumulacio_ca = codi_acumulacio_ca;
     }
-    public int getCodi_acumulacio_nacional() {
+    public String getCodi_acumulacio_nacional() {
         return Codi_acumulacio_nacional;
     }
-    public void setCodi_acumulacio_nacional(int codi_acumulacio_nacional) {Codi_acumulacio_nacional = codi_acumulacio_nacional;}
+    public void setCodi_acumulacio_nacional(String codi_acumulacio_nacional) {Codi_acumulacio_nacional = codi_acumulacio_nacional;}
     public String getNom_curt() {
         return nom_curt;
     }
@@ -82,27 +82,27 @@ public class Candidatures {
 
     //Metodes CRUD
     //Create
-    public static void insert() throws IOException {
+    public static void insert(int candidaturaID,int eleccioID, String codiCandidatura,String nom_curt, String nom_llarg, String codi_acumulacio_prov, String codi_acumulacio_ca,String Codi_acumulacio_nacional ) throws IOException {
         CandidaturesDAO c = new CandidaturesDAO();
-        c.create(new Candidatures(1,0,95,95,95,95,"nom_curt","nom_llarg"));
+        c.create(new Candidatures(candidaturaID,eleccioID,codiCandidatura,nom_curt,nom_llarg,codi_acumulacio_prov,codi_acumulacio_ca,Codi_acumulacio_nacional));
     }
 
     //Read
-    public static void read() throws IOException {
+    public static void read(int candidaturaID) throws IOException {
         CandidaturesDAO c = new CandidaturesDAO();
-        c.read(new Candidatures(50));
+        c.read(new Candidatures(candidaturaID));
     }
 
     //Update
-    public static void update() throws IOException {
+    public static void update(int candidaturaID, String nom_curt, String nom_llarg) {
         CandidaturesDAO c = new CandidaturesDAO();
-        c.update(new Candidatures(1,0,95,95,95,95,"Pere","pi"));
+        c.update(new Candidatures(candidaturaID,0,"000095","95","95","95",nom_curt,nom_llarg));
     }
 
     //Delete
-    public static void delete() throws IOException {
+    public static void delete(int candidaturaID) throws IOException {
         CandidaturesDAO c = new CandidaturesDAO();
-        c.delete(new Candidatures(84));
+        c.delete(new Candidatures(candidaturaID));
     }
 
     //importacio de Candidatures
@@ -147,7 +147,7 @@ public class Candidatures {
                 //System.out.println(eleccio_id + " " + codi_canditatura + " " + nom_curt + " " + nom_llarg + " " + codi_acumulacio_provincia + " " + codi_acumulacio_comautonoma + " " + codi_acumulacio_nacional);
 
             }
-            System.out.println("La taula de Clases.Candidatures s'ha importat correctament.");
+            System.out.println("La taula de Candidatures s'ha importat correctament.");
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
