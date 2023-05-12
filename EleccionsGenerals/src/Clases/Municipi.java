@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.MunicipiDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +19,14 @@ public class Municipi {
         this.provincia_id = provincia_id;
         this.nom = nom;
         this.districte = districte;
+    }
+
+    public Municipi(int id){
+        this.municipiID = id;
+        setCodi_ine(-1);
+        setProvincia_id(-1);
+        setNom(null);
+        setDistricte(null);
     }
 
     public int getMunicipiID() {
@@ -50,6 +60,37 @@ public class Municipi {
         this.districte = districte;
     }
 
+    //Metode municipi CRUD
+    //insert
+    public static void insert(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.create(new Municipi(1,1,1,"nom","districte"));
+        System.out.println("Insertat");
+    }
+
+    //select
+    public static void select(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.read(new Municipi(1));
+    }
+
+    //update
+    public static void update(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.update(new Municipi(1,1,1,"nom","districte"));
+        System.out.println("Actualitzat");
+    }
+
+    //delete
+    public static void delete(){
+        MunicipiDAO MDAO = new MunicipiDAO();
+        MDAO.delete(new Municipi(1));
+        System.out.println("Eliminat");
+    }
+
+
+
+
     //importar municipis
     public static void importarMunicipis(Connection con) {
         File file = new File("./fitxers/05021606.DAT");
@@ -59,14 +100,14 @@ public class Municipi {
             String st;
 
             while ((st = br.readLine()) != null) {
-                String nomMunicipi = Main.llegirSegonsLlargada(19, 100, st).trim();
-                int codiINEmunicipi = Integer.parseInt(Main.llegirSegonsLlargada(14,3,st));
-                int codiINEprovincia = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
-                int num_districte = Integer.parseInt(Main.llegirSegonsLlargada(17,2,st));
+                String nomMunicipi = Importacio.llegirSegonsLlargada(19, 100, st).trim();
+                int codiINEmunicipi = Integer.parseInt(Importacio.llegirSegonsLlargada(14,3,st));
+                int codiINEprovincia = Integer.parseInt(Importacio.llegirSegonsLlargada(12,2,st));
+                int num_districte = Integer.parseInt(Importacio.llegirSegonsLlargada(17,2,st));
 
 
                 //tenir el codi de provincia_id
-                int provincia_id = Main.obtenirProvincia_id(codiINEprovincia);
+                int provincia_id = Importacio.obtenirProvincia_id(codiINEprovincia);
 
                 if (num_districte == 99 ) {
                     // the mysql insert statement

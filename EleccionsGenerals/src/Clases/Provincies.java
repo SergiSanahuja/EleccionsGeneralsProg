@@ -1,5 +1,7 @@
 package Clases;
 
+import ImportacioDAO.ProvinciesDAO;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -17,6 +19,14 @@ public class Provincies {
         this.codi_ine = codi_ine;
         this.num_escons = num_escons;
         this.nom = nom;
+    }
+
+    public Provincies(int id){
+        this.provinciaID = id;
+        setComunitat_aut_id(-1);
+        setCodi_ine(-1);
+        setNum_escons(-1);
+        setNom(null);
     }
 
     public int getProvinciaID() {
@@ -59,6 +69,36 @@ public class Provincies {
         this.nom = nom;
     }
 
+    //metodes CRUD
+    //create
+    public static void insert(){
+       ProvinciesDAO PDAO = new ProvinciesDAO();
+         PDAO.create(new Provincies(1,1,1,1,"nom"));
+        System.out.println("Provincia creada");
+    }
+
+    //read
+    public static void select(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.read(new Provincies(1));
+    }
+
+    //update
+    public static void update(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.update(new Provincies(1,1,1,1,"nom"));
+        System.out.println("Provincia actualitzada");
+    }
+
+    //delete
+    public static void delete(){
+        ProvinciesDAO PDAO = new ProvinciesDAO();
+        PDAO.delete(new Provincies(1));
+        System.out.println("Provincia eliminada");
+    }
+
+
+    //importarProvincies
     public static void importarProvincies(Connection con) {
         File file = new File("./fitxers/07021606.DAT");
 
@@ -67,14 +107,14 @@ public class Provincies {
             String st;
 
             while ((st = br.readLine()) != null) {
-                String nomProvincia = Main.llegirSegonsLlargada(15, 50, st).trim();
-                int codiINEComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
-                int codiINE = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
-                int codiComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
-                int numEscons = Integer.parseInt(Main.llegirSegonsLlargada(150,6,st));
+                String nomProvincia = Importacio.llegirSegonsLlargada(15, 50, st).trim();
+                int codiINEComunitat = Integer.parseInt(Importacio.llegirSegonsLlargada(10, 2, st));
+                int codiINE = Integer.parseInt(Importacio.llegirSegonsLlargada(12,2,st));
+                int codiComunitat = Integer.parseInt(Importacio.llegirSegonsLlargada(10, 2, st));
+                int numEscons = Integer.parseInt(Importacio.llegirSegonsLlargada(150,6,st));
 
                 //Treure codi id de provincies
-                int comunitat_aut_id = Main.obtenirIdComunAmbINE(codiINEComunitat);
+                int comunitat_aut_id = Importacio.obtenirIdComunAmbINE(codiINEComunitat);
 
                 if (codiINE != 99 && codiComunitat != 99) {
 

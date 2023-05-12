@@ -115,17 +115,17 @@ public class Candidatures {
 
             while ((st = br.readLine()) != null) {
 
-                String codi_canditatura = Main.llegirSegonsLlargada(9, 6, st);
-                int codi_acumulacio_provincia = Integer.parseInt(Main.llegirSegonsLlargada(215, 6, st));
-                int codi_acumulacio_comautonoma = Integer.parseInt(Main.llegirSegonsLlargada(221, 6, st));
-                int codi_acumulacio_nacional = Integer.parseInt(Main.llegirSegonsLlargada(227, 6, st));
-                String nom_curt = Main.llegirSegonsLlargada(15, 50, st).trim();
-                String nom_llarg = Main.llegirSegonsLlargada(65, 150, st).trim();
+                String codi_canditatura = Importacio.llegirSegonsLlargada(9, 6, st);
+                int codi_acumulacio_provincia = Integer.parseInt(Importacio.llegirSegonsLlargada(215, 6, st));
+                int codi_acumulacio_comautonoma = Integer.parseInt(Importacio.llegirSegonsLlargada(221, 6, st));
+                int codi_acumulacio_nacional = Integer.parseInt(Importacio.llegirSegonsLlargada(227, 6, st));
+                String nom_curt = Importacio.llegirSegonsLlargada(15, 50, st).trim();
+                String nom_llarg = Importacio.llegirSegonsLlargada(65, 150, st).trim();
 
                 //Treure codi id de eleccions
-                int any = Integer.parseInt(Main.llegirSegonsLlargada(3, 4, st));
-                int mes = Integer.parseInt(Main.llegirSegonsLlargada(7, 2, st));
-                int eleccio_id = Main.obtenirEleccioId(mes, any);
+                int any = Integer.parseInt(Importacio.llegirSegonsLlargada(3, 4, st));
+                int mes = Integer.parseInt(Importacio.llegirSegonsLlargada(7, 2, st));
+                int eleccio_id = Importacio.obtenirEleccioId(mes, any);
 
                 // the mysql insert statement
                 String query = "INSERT INTO candidatures (eleccio_id,codi_candidatura,nom_curt,nom_llarg,codi_acumulacio_provincia,codi_acumulacio_ca,codi_acumulario_nacional)"

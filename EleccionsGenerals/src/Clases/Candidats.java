@@ -74,24 +74,25 @@ public class Candidats {
             String[] nom;
 
             while ((st = br.readLine()) != null) {
-                String candidatura_codi = Main.llegirSegonsLlargada(16, 6, st);
-                int candidatura_id = Main.obtenirCandidatura_id(candidatura_codi);
-                String nom_pers = Main.llegirSegonsLlargada(26, 25, st).trim();
-                String cog1_pers = Main.llegirSegonsLlargada(51, 25, st).trim();
-                String cog2_pers = Main.llegirSegonsLlargada(76, 25, st).trim();
+                String candidatura_codi = Importacio.llegirSegonsLlargada(16, 6, st);
+                int candidatura_id = Importacio.obtenirCandidatura_id(candidatura_codi);
+                String nom_pers = Importacio.llegirSegonsLlargada(26, 25, st).trim();
+                String cog1_pers = Importacio.llegirSegonsLlargada(51, 25, st).trim();
+                String cog2_pers = Importacio.llegirSegonsLlargada(76, 25, st).trim();
                 if (cog1_pers.equals("i")) {
                     nom = nom_pers.split(" ");
                     nom_pers = nom[0];
                     cog1_pers = nom[1];
                 }
 
-                int persona_id = Main.obtenirPersona_id(nom_pers, cog1_pers, cog2_pers);
 
-                int codiINEPro = Integer.parseInt(Main.llegirSegonsLlargada(10,2,st));
-                int provincia_id  = Main.obtenirProvincia_id(codiINEPro);
+                int persona_id = Importacio.obtenirPersona_id(nom_pers, cog1_pers, cog2_pers);
 
-                int num_ordre = Integer.parseInt(Main.llegirSegonsLlargada(22, 3, st));
-                String tipus = Main.llegirSegonsLlargada(25, 1, st);
+                int codiINEPro = Integer.parseInt(Importacio.llegirSegonsLlargada(10,2,st));
+                int provincia_id  = Importacio.obtenirProvincia_id(codiINEPro);
+
+                int num_ordre = Integer.parseInt(Importacio.llegirSegonsLlargada(22, 3, st));
+                String tipus = Importacio.llegirSegonsLlargada(25, 1, st);
 
                 //System.out.println(candidatura_id + " " + persona_id + " " + provicia_id + " " + num_ordre + " " + tipus);
 
