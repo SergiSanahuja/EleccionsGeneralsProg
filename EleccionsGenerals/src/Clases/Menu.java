@@ -27,7 +27,7 @@ public class Menu {
 
         switch (resposta) {
             case 1:
-                Importacio.importacions(con);
+                Importacio.importacions();
                 break;
             case 2:
                 escollirTaula();

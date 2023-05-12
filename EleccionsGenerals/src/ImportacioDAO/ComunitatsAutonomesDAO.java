@@ -2,11 +2,9 @@ package ImportacioDAO;
 
 import Clases.ComunitatAutonoma;
 import Clases.Main;
-import ImportacioDAO.DAO;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 
 public class ComunitatsAutonomesDAO implements DAO<ComunitatAutonoma> {
 

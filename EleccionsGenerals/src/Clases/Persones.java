@@ -116,11 +116,11 @@ public class Persones {
 
             while ((st = br.readLine()) != null) {
 
-                String nom_pers = Main.llegirSegonsLlargada(26, 25, st).trim();
-                String cog1_pers = Main.llegirSegonsLlargada(51, 25, st).trim();
-                String cog2_pers = Main.llegirSegonsLlargada(76, 25, st).trim();
-                String sexe = Main.llegirSegonsLlargada(101, 1, st).trim();
-                String dni = Main.llegirSegonsLlargada(110, 10, st).trim();
+                String nom_pers = Importacio.llegirSegonsLlargada(26, 25, st).trim();
+                String cog1_pers = Importacio.llegirSegonsLlargada(51, 25, st).trim();
+                String cog2_pers = Importacio.llegirSegonsLlargada(76, 25, st).trim();
+                String sexe = Importacio.llegirSegonsLlargada(101, 1, st).trim();
+                String dni = Importacio.llegirSegonsLlargada(110, 10, st).trim();
                 if (dni.equals("000000000")){
                     dni = null;
                 }
@@ -132,9 +132,9 @@ public class Persones {
                 }
 
 
-                int dia = Integer.parseInt(Main.llegirSegonsLlargada(102, 2, st));
-                int mes = Integer.parseInt(Main.llegirSegonsLlargada(104, 2, st));
-                int any = Integer.parseInt(Main.llegirSegonsLlargada(106, 4, st));
+                int dia = Integer.parseInt(Importacio.llegirSegonsLlargada(102, 2, st));
+                int mes = Integer.parseInt(Importacio.llegirSegonsLlargada(104, 2, st));
+                int any = Integer.parseInt(Importacio.llegirSegonsLlargada(106, 4, st));
                 String query = "INSERT INTO persones (nom, cog1, cog2, sexe,data_naixement,dni)"
                         + " values (?, ?, ?, ?, ?, ?)";
 

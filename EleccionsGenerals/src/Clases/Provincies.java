@@ -107,14 +107,14 @@ public class Provincies {
             String st;
 
             while ((st = br.readLine()) != null) {
-                String nomProvincia = Main.llegirSegonsLlargada(15, 50, st).trim();
-                int codiINEComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
-                int codiINE = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
-                int codiComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
-                int numEscons = Integer.parseInt(Main.llegirSegonsLlargada(150,6,st));
+                String nomProvincia = Importacio.llegirSegonsLlargada(15, 50, st).trim();
+                int codiINEComunitat = Integer.parseInt(Importacio.llegirSegonsLlargada(10, 2, st));
+                int codiINE = Integer.parseInt(Importacio.llegirSegonsLlargada(12,2,st));
+                int codiComunitat = Integer.parseInt(Importacio.llegirSegonsLlargada(10, 2, st));
+                int numEscons = Integer.parseInt(Importacio.llegirSegonsLlargada(150,6,st));
 
                 //Treure codi id de provincies
-                int comunitat_aut_id = Main.obtenirIdComunAmbINE(codiINEComunitat);
+                int comunitat_aut_id = Importacio.obtenirIdComunAmbINE(codiINEComunitat);
 
                 if (codiINE != 99 && codiComunitat != 99) {
 

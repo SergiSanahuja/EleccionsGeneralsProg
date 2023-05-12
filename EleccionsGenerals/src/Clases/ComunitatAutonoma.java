@@ -84,9 +84,9 @@ public class ComunitatAutonoma {
             String st;
 
             while ((st = br.readLine()) != null) {
-                int codiINEComunitat = Integer.parseInt(Main.llegirSegonsLlargada(10, 2, st));
-                int codiINE = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
-                String nomComunitat = Main.llegirSegonsLlargada(15, 50, st).trim();
+                int codiINEComunitat = Integer.parseInt(Importacio.llegirSegonsLlargada(10, 2, st));
+                int codiINE = Integer.parseInt(Importacio.llegirSegonsLlargada(12,2,st));
+                String nomComunitat = Importacio.llegirSegonsLlargada(15, 50, st).trim();
 
                 if (codiINE == 99 && codiINEComunitat != 99) {
                     // the mysql insert statement

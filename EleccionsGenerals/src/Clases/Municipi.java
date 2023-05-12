@@ -100,14 +100,14 @@ public class Municipi {
             String st;
 
             while ((st = br.readLine()) != null) {
-                String nomMunicipi = Main.llegirSegonsLlargada(19, 100, st).trim();
-                int codiINEmunicipi = Integer.parseInt(Main.llegirSegonsLlargada(14,3,st));
-                int codiINEprovincia = Integer.parseInt(Main.llegirSegonsLlargada(12,2,st));
-                int num_districte = Integer.parseInt(Main.llegirSegonsLlargada(17,2,st));
+                String nomMunicipi = Importacio.llegirSegonsLlargada(19, 100, st).trim();
+                int codiINEmunicipi = Integer.parseInt(Importacio.llegirSegonsLlargada(14,3,st));
+                int codiINEprovincia = Integer.parseInt(Importacio.llegirSegonsLlargada(12,2,st));
+                int num_districte = Integer.parseInt(Importacio.llegirSegonsLlargada(17,2,st));
 
 
                 //tenir el codi de provincia_id
-                int provincia_id = Main.obtenirProvincia_id(codiINEprovincia);
+                int provincia_id = Importacio.obtenirProvincia_id(codiINEprovincia);
 
                 if (num_districte == 99 ) {
                     // the mysql insert statement
