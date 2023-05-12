@@ -1,4 +1,4 @@
-#BDD relacionals amb JDBC
+# BDD relacionals amb JDBC
 
 ## Pràctica realitzada per:
   -Sergi Sanahuja
