@@ -42,25 +42,25 @@ public class Candidats {
     public void setTipus(String tipus) {this.tipus = tipus;}
 
     //funcions per a CRUD
-    public static void insert(){
+    public static void insert(int candidatID, int candidaturaID, int personaID, int provinciaID, int num_ordre, String tipus){
         CandidatsDAO Candidat = new CandidatsDAO();
-        Candidat.create(new Candidats(9999,1,3993,1,1,"T"));
+        Candidat.create(new Candidats(candidatID,candidaturaID,personaID,provinciaID,num_ordre,tipus));
         System.out.println("Candidat inserit");
     }
 
-    public static void read(){
+    public static void read(int candidatID){
         CandidatsDAO Candidat = new CandidatsDAO();
-        Candidat.read(new Candidats(1500));
+        Candidat.read(new Candidats(candidatID));
     }
 
-    public static void update(){
+    public static void update(int candidatID,int personaID, int provinciaID){
         CandidatsDAO Candidat = new CandidatsDAO();
-        Candidat.update(new Candidats(3823,1,3997,5,5,"T"));
+        Candidat.update(new Candidats(candidatID,1,personaID,provinciaID,5,"T"));
     }
 
-    public static void delete(){
+    public static void delete(int candidatID){
         CandidatsDAO Candidat = new CandidatsDAO();
-        Candidat.delete(new Candidats(3823));
+        Candidat.delete(new Candidats(candidatID));
     }
 
 
