@@ -17,6 +17,8 @@ public class MunicipiDAO implements DAO<Municipi> {
             ps.setInt(3, o.getProvincia_id());
             ps.setString(4, o.getDistricte());
             ps.executeUpdate();
+            int columnMod = ps.executeUpdate();
+            System.out.println("Columenes insertades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }
