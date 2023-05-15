@@ -18,6 +18,8 @@ public class CandidatsDAO implements DAO<Candidats>{
             ps.setInt(4, c.getNum_ordre());
             ps.setString(5, c.getTipus());
             ps.executeUpdate();
+            int columnMod = ps.executeUpdate();
+            System.out.println("Columenes insertades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }

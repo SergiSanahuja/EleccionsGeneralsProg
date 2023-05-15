@@ -17,6 +17,8 @@ public class ProvinciesDAO implements DAO<Provincies> {
             ps.setInt(3, provincies.getCodi_ine());
             ps.setInt(4, provincies.getNum_escons());
             ps.executeUpdate();
+            int columnMod = ps.executeUpdate();
+            System.out.println("Columenes insertades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }
