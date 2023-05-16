@@ -8,9 +8,12 @@
   -Per posar la teva connexió hauras de modificar la següent linea de codi a la clase Main:
   
   ```java
-  con = DriverManager.getConnection("jdbc:mysql://192.168.56.103:3306/eleccions_generals_prog", "perepi", "pastanaga");
+  con = DriverManager.getConnection("jdbc:mysql://IP:3306/BDD", "usuari", "contrasenya");
   ```
-  
+      -**IP**: serà la IP de la teva maquina virtual.
+      -**BDD**: serà la base de dades que vols utilitzar.
+      -**usuari**: el teu usuari de mysql.
+      -**contrasenya**: la contrasenya del teu mysql pel usuari.
   
   ## Pràctica realitzada per:
   -Sergi Sanahuja
