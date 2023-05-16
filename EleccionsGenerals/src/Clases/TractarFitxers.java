@@ -24,15 +24,20 @@ public class TractarFitxers {
 
             while ((ze = zis.getNextEntry()) != null) {
 
-                if (!ze.getName().substring(ze.getName().length() - 4).equals(".DAT")) continue;
+                if (!ze.getName().endsWith(".DAT")) continue;
 
                 ZipEntry e = zf.getEntry(ze.getName());
 
                 InputStream is = zf.getInputStream(e);
 
-                Files.copy(is, Paths.get("./fitxers/" + ze.getName()));
+                if (!Files.exists(Paths.get("./fitxers/"))) {
+                    Files.copy(is, Paths.get("./fitxers/" + ze.getName()));
+                    System.out.println("El fitxer: " + ze.getName() + " s'ha afegit a la carpeta \"./fitxers/\"");
+                }else{
+                    System.out.println("el fitxer:" + ze.getName()+ " en la carpeta \"./fitxers/\" ja existeix.");
+                }
 
-                System.out.println("El fitxer: " + ze.getName() + " s'ha afegit a la carpeta \"./fitxers/\"");
+
             }
             System.out.println();
         } catch (IOException e) {
