@@ -23,6 +23,6 @@
   -**contrasenya**: la contrasenya del teu mysql pel usuari.
   
   ## Pràctica realitzada per:
-  -Sergi Sanahuja
+  -**Sergi Sanahuja**
   
-  -Elyas El Jerari
+  -**Elyas El Jerari** 
