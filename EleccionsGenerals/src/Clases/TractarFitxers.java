@@ -18,7 +18,7 @@ public class TractarFitxers {
         try (FileInputStream fis = new FileInputStream(fileName);
              BufferedInputStream bis = new BufferedInputStream(fis);
              ZipInputStream zis = new ZipInputStream(bis)) {
-            ZipFile zf = new ZipFile(fileName);
+             ZipFile zf = new ZipFile(fileName);
 
             ZipEntry ze;
 
