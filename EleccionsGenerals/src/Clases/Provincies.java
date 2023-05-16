@@ -13,12 +13,13 @@ public class Provincies {
     private int provinciaID, comunitat_aut_id, codi_ine, num_escons;
     private String nom;
 
-    public Provincies(int provinciaID, int comunitat_aut_id, int codi_ine, int num_escons, String nom) {
+    public Provincies(int provinciaID, int comunitat_aut_id, String nom,int codi_ine, int num_escons) {
         this.provinciaID = provinciaID;
         this.comunitat_aut_id = comunitat_aut_id;
+        this.nom = nom;
         this.codi_ine = codi_ine;
         this.num_escons = num_escons;
-        this.nom = nom;
+
     }
 
     public Provincies(int id){
@@ -71,29 +72,29 @@ public class Provincies {
 
     //metodes CRUD
     //create
-    public static void insert(){
+    public static void insert(int provinciaID, int comunitat_aut_id, String nom,int codi_ine , int num_escons){
        ProvinciesDAO PDAO = new ProvinciesDAO();
-         PDAO.create(new Provincies(1,1,1,1,"nom"));
+         PDAO.create(new Provincies(provinciaID,comunitat_aut_id,nom,codi_ine,num_escons));
         System.out.println("Provincia creada");
     }
 
     //read
-    public static void select(){
+    public static void read(int id){
         ProvinciesDAO PDAO = new ProvinciesDAO();
-        PDAO.read(new Provincies(1));
+        PDAO.read(new Provincies(id));
     }
 
     //update
-    public static void update(){
+    public static void update(int id,String nom){
         ProvinciesDAO PDAO = new ProvinciesDAO();
-        PDAO.update(new Provincies(1,1,1,1,"nom"));
+        PDAO.update(new Provincies(id,11,nom,11,1));
         System.out.println("Provincia actualitzada");
     }
 
     //delete
-    public static void delete(){
+    public static void delete(int id){
         ProvinciesDAO PDAO = new ProvinciesDAO();
-        PDAO.delete(new Provincies(1));
+        PDAO.delete(new Provincies(id));
         System.out.println("Provincia eliminada");
     }
 

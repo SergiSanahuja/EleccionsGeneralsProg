@@ -21,7 +21,7 @@ public class Menu {
         resposta = scan.nextInt();
 
         while (resposta >= 4 || resposta <= 0){
-            System.out.println("Introdueix un número vàlid");
+            System.out.print("Introdueix un número vàlid");
             System.out.print(">   ");
             resposta = scan.nextInt();
         }
@@ -55,7 +55,7 @@ public class Menu {
         respostaTaula = scan.nextInt();
 
         while (respostaTaula >= 7 || respostaTaula <= 0){
-            System.out.println("Introdueix una taula vàlida");
+            System.out.print("Introdueix una taula vàlida");
             System.out.print(">   ");
             respostaTaula = scan.nextInt();
         }
@@ -68,7 +68,7 @@ public class Menu {
                 escollirCRUDProvincies();
                 break;
             case 3:
-                //escollirCRUDMunicipis();
+                escollirCRUDMunicipis();
                 break;
             case 4:
                 escollirCRUDPersones();
@@ -81,7 +81,6 @@ public class Menu {
                 break;
         }
     }
-
     public static void printCRUD(){
         System.out.println("Quina sentencia vols realitzar sobre la taula?");
         System.out.print(  "╔═══════════════╗\n" +
@@ -92,16 +91,14 @@ public class Menu {
                 "╚═══════════════╝\n" +
                 ">   ");
     }
-
     public static void comprovarCRUD(int respostaCRUD){
         while (respostaCRUD >= 5 || respostaCRUD <= 0){
-            System.out.println("Introdueix un número vàlid");
+            System.out.print("Introdueix un número vàlid");
             System.out.print(">   ");
             respostaCRUD = scan.nextInt();
             scan.nextLine();
         }
     }
-
     public static void escollirCRUDComunitatAutonoma() {
         int id, respostaCRUD, codiINE;
         String nom;
@@ -124,7 +121,7 @@ public class Menu {
                 ComunitatAutonoma.insertComunitatAutonoma(id , nom, codiINE);
                 break;
             case 2:
-                System.out.println("Digues el id de la comunitat autonoma que vols buscar\n" +
+                System.out.print("Digues el id de la comunitat autonoma que vols buscar\n" +
                         ">   ");
                 id = scan.nextInt();
                 ComunitatAutonoma.readComunitatAutonoma(id);
@@ -146,10 +143,93 @@ public class Menu {
         }
     }
     public static void escollirCRUDProvincies(){
+        int id, respostaCRUD, id_comunitat_autonoma, codi_ine,nom_escons;
+        String nom;
+        printCRUD();
+        respostaCRUD = scan.nextInt();
+        scan.nextLine();
 
+        comprovarCRUD(respostaCRUD);
+        switch (respostaCRUD){
+            case 1:
+                System.out.print("Digues el id, id_comunitat_autonoma, nom, codi_ine i nom_escons de la provincia\n" +
+                        ">   ");
+                id = scan.nextInt();
+                id_comunitat_autonoma = scan.nextInt();
+                nom = scan.next();
+                codi_ine = scan.nextInt();
+                nom_escons = scan.nextInt();
+                scan.nextLine();
+
+                Provincies.insert(id , id_comunitat_autonoma, nom, codi_ine, nom_escons);
+                break;
+            case 2:
+                System.out.print("Digues el id de la provincia que vols buscar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Provincies.read(id);
+                break;
+            case 3:
+                System.out.print("Digues l'id de la provincia que vols modificar seguit del nou id_comunitat_autonoma, nom, codi_ine i nom_escons\n" +
+                        ">   ");
+                id = scan.nextInt();
+                nom = scan.next().trim();
+                Provincies.update(id , nom);
+                break;
+            case 4:
+                System.out.print("Digues el id de la provincia que vols eliminar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Provincies.delete(id);
+                break;
+        }
     }
     public static void escollirCRUDMunicipis(){
+        int id, respostaCRUD, codi_ine, id_provincia;
+        String nom, districte;
+        printCRUD();
+        respostaCRUD = scan.nextInt();
+        scan.nextLine();
 
+        comprovarCRUD(respostaCRUD);
+        switch (respostaCRUD){
+            case 1:
+                System.out.print("Digues el id, nom, codi_ine, provincia id i districte del municipi\n" +
+                        ">   ");
+                id = scan.nextInt();
+                nom = scan.next().trim();
+                codi_ine = scan.nextInt();
+                id_provincia = scan.nextInt();
+                districte = scan.next().trim();
+                scan.nextLine();
+
+                Municipi.insert(id , nom, codi_ine, id_provincia, districte);
+                break;
+            case 2:
+                System.out.print("Digues el id del municipi que vols buscar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Municipi.read(id);
+                break;
+            case 3:
+                System.out.print("Digues l'id del municipi que vols modificar seguit del nou nom, codi_ine, provincia_id i districte\n" +
+                        ">   ");
+                id = scan.nextInt();
+                nom = scan.next().trim();
+                codi_ine = scan.nextInt();
+                id_provincia = scan.nextInt();
+                districte = scan.next().trim();
+                scan.nextLine();
+
+                Municipi.update(id , nom,codi_ine,id_provincia,districte );
+                break;
+            case 4:
+                System.out.print("Digues el id del municipi que vols eliminar\n" +
+                        ">   ");
+                id = scan.nextInt();
+                Municipi.delete(id);
+                break;
+        }
     }
     public static void escollirCRUDPersones(){
         int id ,respostaCRUD;
@@ -176,7 +256,7 @@ public class Menu {
                 Persones.insert(id,nom,cognom1,cognom2,sexe,data_naixement,DNI);
                 break;
                 case 2:
-                    System.out.println("Digues el id de la persona que vols buscar\n" +
+                    System.out.print("Digues el id de la persona que vols buscar\n" +
                             ">   ");
                     id = scan.nextInt();
                     Persones.read(id);
@@ -220,13 +300,13 @@ public class Menu {
                 tipus = scan.next().trim();
                 scan.nextLine();
 
-                //Candidats.insert(id,candidatura_id,persona_id,provincia_id,num_ordre,tipus);
+                Candidats.insert(id,candidatura_id,persona_id,provincia_id,num_ordre,tipus);
                 break;
             case 2:
                 System.out.print("Digues el id del candidat que vols buscar\n" +
                         ">   ");
                 id = scan.nextInt();
-                //Candidats.read(id);
+                Candidats.read(id);
                 break;
             case 3:
                 System.out.print("Digues l'id del candidat que vols modificar seguit del nou persona_id, provincia_id, num_ordre i tipus\n" +
@@ -242,7 +322,7 @@ public class Menu {
                 System.out.print("Digues el id del candidat que vols eliminar\n" +
                         ">   ");
                 id = scan.nextInt();
-                //Candidats.delete(id);
+                Candidats.delete(id);
         }
     }
     public static void escollirCRUDCandidatures() throws IOException {

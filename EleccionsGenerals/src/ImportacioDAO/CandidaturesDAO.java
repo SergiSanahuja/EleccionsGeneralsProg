@@ -21,6 +21,8 @@ public class CandidaturesDAO implements DAO<Candidatures> {
             ps.setString(6, candidatures.getCodi_acumulacio_ca());
             ps.setString(7, candidatures.getCodi_acumulacio_nacional());
             ps.executeUpdate();
+            int columnMod = ps.executeUpdate();
+            System.out.println("Columenes insertades: " + columnMod);
         } catch (Exception e) {
             e.printStackTrace();
         }

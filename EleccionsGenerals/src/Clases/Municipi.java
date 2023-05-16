@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class Municipi {
-    private int municipiID,codi_ine,provincia_id;
-    private String nom,districte;
+    int municipiID,codi_ine,provincia_id;
+    String nom,districte;
 
     public Municipi(int municipiID, int codi_ine, int provincia_id, String nom, String districte) {
         this.municipiID = municipiID;
