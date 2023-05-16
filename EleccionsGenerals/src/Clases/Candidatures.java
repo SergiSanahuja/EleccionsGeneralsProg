@@ -125,7 +125,7 @@ public class Candidatures {
                 //Treure codi id de eleccions
                 int any = Integer.parseInt(Importacio.llegirSegonsLlargada(3, 4, st));
                 int mes = Integer.parseInt(Importacio.llegirSegonsLlargada(7, 2, st));
-                int eleccio_id = Importacio.obtenirEleccioId(mes, any);
+                //int eleccio_id = Importacio.obtenirEleccioId(mes, any);
 
                 // the mysql insert statement
                 String query = "INSERT INTO candidatures (eleccio_id,codi_candidatura,nom_curt,nom_llarg,codi_acumulacio_provincia,codi_acumulacio_ca,codi_acumulario_nacional)"
@@ -134,7 +134,7 @@ public class Candidatures {
                 // create the mysql insert preparedstatement
                 PreparedStatement preparedStmt = con.prepareStatement(query);
 
-                preparedStmt.setInt(1, eleccio_id);
+                preparedStmt.setInt(1, 0);
                 preparedStmt.setString(2, codi_canditatura);
                 preparedStmt.setString(3, nom_curt);
                 preparedStmt.setString(4, nom_llarg);

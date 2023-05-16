@@ -109,7 +109,7 @@ public class Candidats {
                 //System.out.println(preparedStmt);
                 preparedStmt.execute();
             }
-            System.out.println("La taula de Clases.Candidats s'ha importat correctament.");
+            System.out.println("La taula de Candidats s'ha importat correctament.");
         } catch (IOException | SQLException e) {
 
             e.printStackTrace();

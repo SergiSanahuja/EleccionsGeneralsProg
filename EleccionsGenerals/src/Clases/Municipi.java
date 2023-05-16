@@ -13,11 +13,11 @@ public class Municipi {
     int municipiID,codi_ine,provincia_id;
     String nom,districte;
 
-    public Municipi(int municipiID, int codi_ine, int provincia_id, String nom, String districte) {
+    public Municipi(int municipiID, String nom, int codi_ine, int provincia_id, String districte) {
         this.municipiID = municipiID;
-        this.codi_ine = codi_ine;
+        this.nom = String.valueOf(nom);
+        this.codi_ine = Integer.parseInt(String.valueOf(codi_ine));
         this.provincia_id = provincia_id;
-        this.nom = nom;
         this.districte = districte;
     }
 
@@ -28,6 +28,7 @@ public class Municipi {
         setNom(null);
         setDistricte(null);
     }
+
 
     public int getMunicipiID() {
         return municipiID;
@@ -61,30 +62,31 @@ public class Municipi {
     }
 
     //Metode municipi CRUD
+    //Metode municipi CRUD
     //insert
-    public static void insert(){
+    public static void insert(int municipiID, String nom, int codi_ine, int provincia_id, String districte){
         MunicipiDAO MDAO = new MunicipiDAO();
-        MDAO.create(new Municipi(1,1,1,"nom","districte"));
+        MDAO.create(new Municipi(municipiID,nom,codi_ine,provincia_id,districte));
         System.out.println("Insertat");
     }
 
     //select
-    public static void select(){
+    public static void read(int municipiID){
         MunicipiDAO MDAO = new MunicipiDAO();
-        MDAO.read(new Municipi(1));
+        MDAO.read(new Municipi(municipiID));
     }
 
     //update
-    public static void update(){
+    public static void update(int municipiID, String nom, int codi_ine, int provincia_id, String districte){
         MunicipiDAO MDAO = new MunicipiDAO();
-        MDAO.update(new Municipi(1,1,1,"nom","districte"));
+        MDAO.update(new Municipi(municipiID,nom,codi_ine,provincia_id,districte));
         System.out.println("Actualitzat");
     }
 
     //delete
-    public static void delete(){
+    public static void delete(int municipiID){
         MunicipiDAO MDAO = new MunicipiDAO();
-        MDAO.delete(new Municipi(1));
+        MDAO.delete(new Municipi(municipiID));
         System.out.println("Eliminat");
     }
 
