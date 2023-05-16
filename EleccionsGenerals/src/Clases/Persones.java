@@ -160,7 +160,7 @@ public class Persones {
                 }
                 preparedStmt.execute();
             }
-            System.out.println("La taula de Clases.Persones s'ha importat correctament.");
+            System.out.println("La taula de Persones s'ha importat correctament.");
         } catch (IOException | SQLException | ParseException e) {
             e.printStackTrace();
         }
