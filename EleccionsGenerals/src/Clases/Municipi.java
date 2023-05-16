@@ -88,9 +88,6 @@ public class    Municipi {
         System.out.println("Eliminat");
     }
 
-
-
-
     //importar municipis
     public static void importarMunicipis(Connection con) {
         File file = new File("./fitxers/05021606.DAT");
