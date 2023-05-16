@@ -1,3 +1,8 @@
+/**
+ * importacio de les taules
+ * @version 1.0
+ * author Sergi Sanahuja and Elyas El Jerari
+ */
 package Clases;
 
 import java.sql.Connection;
