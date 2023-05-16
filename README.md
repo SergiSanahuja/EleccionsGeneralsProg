@@ -10,10 +10,10 @@
   ```java
   con = DriverManager.getConnection("jdbc:mysql://IP:3306/BDD", "usuari", "contrasenya");
   ```
-      -**IP**: serà la IP de la teva maquina virtual.
-      -**BDD**: serà la base de dades que vols utilitzar.
-      -**usuari**: el teu usuari de mysql.
-      -**contrasenya**: la contrasenya del teu mysql pel usuari.
+  -**IP**: serà la IP de la teva maquina virtual.
+  -**BDD**: serà la base de dades que vols utilitzar.
+  -**usuari**: el teu usuari de mysql.
+  -**contrasenya**: la contrasenya del teu mysql pel usuari.
   
   ## Pràctica realitzada per:
   -Sergi Sanahuja
