@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
-public class    Municipi {
+public class Municipi {
     int municipiID,codi_ine,provincia_id;
     String nom,districte;
 
@@ -28,6 +28,7 @@ public class    Municipi {
         setNom(null);
         setDistricte(null);
     }
+
 
     public int getMunicipiID() {
         return municipiID;
@@ -60,6 +61,7 @@ public class    Municipi {
         this.districte = districte;
     }
 
+    //Metode municipi CRUD
     //Metode municipi CRUD
     //insert
     public static void insert(int municipiID, String nom, int codi_ine, int provincia_id, String districte){

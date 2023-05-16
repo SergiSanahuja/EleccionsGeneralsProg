@@ -28,7 +28,6 @@ public class Importacio {
        Candidats.importarCandidats(con);
 
 
-
    }
     static String llegirSegonsLlargada(int longiInci, int llargadaALlegir, String st) {
         String stringTornar = "";

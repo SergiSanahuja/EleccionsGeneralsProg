@@ -16,9 +16,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Persones {
-    String nom,cog1,cog2,sexe,DNI;
-    Date dataNaixement;
-    int id;
+    private String nom,cog1,cog2,sexe,DNI;
+    private Date dataNaixement;
+    private int id;
 //Constructors
     public Persones(int id,String nom, String cog1, String cog2, String sexe, String DNI, Date data_naixement) {
         this.id = id;

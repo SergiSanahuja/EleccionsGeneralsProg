@@ -10,8 +10,8 @@ import java.nio.charset.StandardCharsets;
 import java.sql.*;
 
 public class Candidats {
-    int candidatID,candidaturaID,personaID,provinciaID,num_ordre;
-    String tipus;
+    private int candidatID,candidaturaID,personaID,provinciaID,num_ordre;
+    private String tipus;
 
     public Candidats(int candidatID, int candidaturaID, int personaID, int provinciaID, int num_ordre, String tipus) {
         this.candidatID = candidatID;
@@ -109,7 +109,7 @@ public class Candidats {
                 //System.out.println(preparedStmt);
                 preparedStmt.execute();
             }
-            System.out.println("La taula de Clases.Candidats s'ha importat correctament.");
+            System.out.println("La taula de Candidats s'ha importat correctament.");
         } catch (IOException | SQLException e) {
 
             e.printStackTrace();

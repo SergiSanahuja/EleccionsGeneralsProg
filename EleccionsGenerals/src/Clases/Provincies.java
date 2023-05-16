@@ -10,8 +10,8 @@ import java.sql.*;
 
 public class Provincies {
 
-    int provinciaID, comunitat_aut_id, codi_ine, num_escons;
-    String nom;
+    private int provinciaID, comunitat_aut_id, codi_ine, num_escons;
+    private String nom;
 
     public Provincies(int provinciaID, int comunitat_aut_id, String nom,int codi_ine, int num_escons) {
         this.provinciaID = provinciaID;
